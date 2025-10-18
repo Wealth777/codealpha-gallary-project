@@ -20,12 +20,29 @@
             <p class="subtitle">Join <strong>PixHaven</strong> and start
                 exploring amazing images.</p>
 
+            <p class="subtitle" style="display: none;">Input Must be filled😏</p>
+
             <form class="auth-form">
-                <input type="text" placeholder="Full Name" required>
-                <input type="email" placeholder="Email Address" required>
-                <input type="password" placeholder="Password" required>
-                <button class="btn"><span class="sign">Sign Up</span></button>
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="email" id="email" placeholder="Email Address" required>
+
+                <div class="password-wrapper">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <i class="fa fa-eye" id="showPassword" title="Show password"></i>
+                </div>
+
+                <div class="verification-notice" id="verificationNotice" role="status" aria-live="polite">
+                    <p id="verificationMessage">A verification link has been sent to your email.</p>
+                    <p id="verificationMessage2">“Please check your email inbox or spam folder to verify your account.”
+                    </p>
+                    <div class="verification-actions">
+                        <button class="verification-btn" id="openEmailBtn">Open Email</button>
+                        <button class="verification-dismiss" id="dismissVerification">Dismiss</button>
+                    </div>
+                </div>
             </form>
+
+            <button class="btn" onclick="withEmail()" id="withEmail"><span class="sign">Sign Up</span></button>
 
             <div class="divider">or sign up with</div>
 
@@ -41,28 +58,136 @@
         </div>
     </div>
 
-
-
-
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
-        import { getAuth, GoogleAuthProvider, signInWithPopup, GithubAuthProvider } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup, GithubAuthProvider, createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
 
         // Your web app's Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyAZeXRLtizNVxoROHfCWwYFZYzCrrHUVjs",
             authDomain: "pixhaven-gallary.firebaseapp.com",
+            databaseURL: "https://pixhaven-gallary-default-rtdb.firebaseio.com",
             projectId: "pixhaven-gallary",
             storageBucket: "pixhaven-gallary.firebasestorage.app",
             messagingSenderId: "22248391827",
             appId: "1:22248391827:web:d6617252875deab4da3966"
         };
 
+
+
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const provider = new GoogleAuthProvider();
         const gitProvider = new GithubAuthProvider();
+        // const database = getDatabase(app);
+
+
+        const withEmailBtn = document.getElementById('withEmail')
+        const userNameEl = document.getElementById('username')
+        const userEmailEl = document.getElementById('email')
+        const userPasswordEl = document.getElementById('password')
+        const showPassword = document.getElementById('showPassword')
+        const verificationNotice = document.getElementById('verificationNotice')
+        const openEmailBtn = document.getElementById('openEmailBtn')
+        const dismissVerification = document.getElementById('dismissVerification')
+
+
+
+        withEmailBtn.disabled = true
+
+
+
+        function checkValid() {
+            if (
+                userNameEl.value.trim() !== '' &&
+                userEmailEl.value.includes('@') &&
+                userPasswordEl.value.trim().length >= 6
+            ) {
+                withEmailBtn.disabled = false
+            } else {
+                withEmailBtn.disabled = true
+            }
+        }
+
+
+
+        userNameEl.addEventListener('input', checkValid);
+        userEmailEl.addEventListener('input', checkValid);
+        userPasswordEl.addEventListener('input', checkValid);
+
+        showPassword.addEventListener('click', () => {
+            if (userPasswordEl.type === 'password') {
+                userPasswordEl.type = 'text';
+                showPassword.classList.add('fa-eye-slash')
+                showPassword.classList.remove('fa-eye')
+            } else {
+                userPasswordEl.type = 'password';
+                showPassword.classList.add('fa-eye')
+                showPassword.classList.remove('fa-eye-slash')
+            }
+        })
+
+
+        window.withEmail = async function () {
+            const userName = userNameEl.value.trim()
+            const userEmail = userEmailEl.value.trim()
+            const userPassword = userPasswordEl.value.trim()
+
+            const actionCodeSettings = {
+                url: 'http://127.0.0.1:5500/Pixhaven/signup.html',
+                handleCodeInApp: true,
+            };
+
+
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, userEmail, userPassword);
+                const user = userCredential.user;
+                const uid = user.uid
+
+                await sendEmailVerification(user, actionCodeSettings);
+
+                const userInfo =
+                {
+                    id: uid,
+                    name: userName,
+                    email: userEmail,
+                }
+
+                console.log(userInfo)
+
+
+                const messageEl = document.getElementById('verificationMessage')
+                if (messageEl) {
+                    messageEl.textContent = `A verification link has been sent to ${userEmail}.`;
+                }
+                verificationNotice.classList.add('active')
+
+                openEmailBtn.onclick = () => {
+                    const domain = userEmail.split('@')[1] || ''
+                    const lower = domain.toLowerCase()
+                    let url = 'https://mail.google.com'
+                    if (lower.includes('gmail')) url = 'https://mail.google.com'
+                    else if (lower.includes('yahoo')) url = 'https://mail.yahoo.com'
+                    else if (lower.includes('outlook') || lower.includes('hotmail') || lower.includes('live')) url = 'https://outlook.live.com'
+                    else if (lower.includes('icloud') || lower.includes('me')) url = 'https://www.icloud.com/mail'
+                    window.open(url, '_blank')
+                }
+
+            }
+            catch (error) {
+                console.error(error)
+            };
+
+
+            userNameEl.value = '';
+            userEmailEl.value = '';
+            userPasswordEl.value = '';
+        }
+
+        dismissVerification.addEventListener('click', () => {
+            verificationNotice.classList.remove('active')
+        })
 
         window.withGoogle = async function () {
             {
@@ -74,14 +199,14 @@
                         // The signed-in user info.
                         const user = result.user;
 
-                        const userInfo = [
-                            {
-                                uid: user.uid,
-                                name: user.displayName,
-                                email: user.email,
-                                phote: user.photoURL
-                            }
-                        ]
+                        const userInfo =
+                        {
+                            uid: user.uid,
+                            name: user.displayName,
+                            email: user.email,
+                            phote: user.photoURL
+                        }
+
 
                         console.log(userInfo)
 
