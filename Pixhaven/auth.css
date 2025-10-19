@@ -205,26 +205,6 @@ body {
     background: linear-gradient(90deg, #434343  0%, #000000 100%);
 }
 
-.social-btn.phone {
-    background: linear-gradient(90deg, #25D366 0%, #128C7E 100%);
-    color: #fff;
-    border: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.social-btn.phone a {
-    color: #fff;
-    border: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none;
-}
-
-.social-btn.phone:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 12px rgba(37, 211, 102, 0.6);
-    background: linear-gradient(90deg, #128C7E 0%, #25D366  100%);
-
-}
-
 .switch {
     margin-top: 18px;
     font-size: 14px;
@@ -260,6 +240,40 @@ body {
     color: rgba(15, 23, 42, 0.6);
 }
 
+
+.emailInUse {
+    display: none;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #fff;
+    padding: 14px;
+    border-radius: 10px;
+    margin: 12px 0;
+}
+.emailInUse.active {
+    display: block;
+}
+.emailInUse p {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+}
+
+.testMail {
+    display: none;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #fff;
+    padding: 14px;
+    border-radius: 10px;
+    margin: 12px 0;
+}
+.testMail.active {
+    display: block;
+}
+.testMail p {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+}
 
 .verification-notice {
     display: none;
