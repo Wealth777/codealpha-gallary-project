@@ -54,66 +54,66 @@ body {
 }
 
 .auth-form input {
-  width: 100%;
-  padding: 12px 14px;
-  margin: 10px 0;
-  border-radius: 10px;
-  border: 1px solid rgba(15, 23, 42, 0.06);
-  outline: none;
-  font-size: 15px;
-  background: #fff;
-  transition: box-shadow 0.16s ease, transform 0.12s ease;
+    width: 100%;
+    padding: 12px 14px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    outline: none;
+    font-size: 15px;
+    background: #fff;
+    transition: box-shadow 0.16s ease, transform 0.12s ease;
 }
 
 .auth-form input:focus {
-  box-shadow: 0 8px 28px rgba(37, 99, 235, 0.08);
-  transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(37, 99, 235, 0.08);
+    transform: translateY(-2px);
 }
 
 .password-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
 }
 
 .password-wrapper input {
-  flex: 1;
-  padding-right: 45px; 
-  border-radius: 10px;
+    flex: 1;
+    padding-right: 45px;
+    border-radius: 10px;
 }
 
 
-.password-wrapper .fa-eye{
-  position: absolute;
-  right: 12px;
-  color: #555;
-  cursor: pointer;
-  font-size: 18px;
-  transition: color 0.2s ease, transform 0.12s ease;
+.password-wrapper .fa-eye {
+    position: absolute;
+    right: 12px;
+    color: #555;
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.2s ease, transform 0.12s ease;
 }
 
-.password-wrapper .fa-eye-slash{
-  position: absolute;
-  right: 12px;
-  color: #555;
-  cursor: pointer;
-  font-size: 18px;
-  transition: color 0.2s ease, transform 0.12s ease;
+.password-wrapper .fa-eye-slash {
+    position: absolute;
+    right: 12px;
+    color: #555;
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.2s ease, transform 0.12s ease;
 }
 
 .password-wrapper .fa-eye:hover {
-  color: red;
-  transform: scale(1.1);
+    color: red;
+    transform: scale(1.1);
 }
 
 .password-wrapper .fa-eye-slash:hover {
-  color: red;
-  transform: scale(1.1);
+    color: red;
+    transform: scale(1.1);
 }
 
 .password-wrapper .fa-eye:active {
-  transform: scale(0.95);
+    transform: scale(0.95);
 }
 
 
@@ -137,7 +137,7 @@ body {
     background: var(--button-bg, linear-gradient(90deg, #00c6ff 30%, #ff00de 100%));
 }
 
-.sign{
+.sign {
     font-weight: 700;
     color: #fff;
 }
@@ -176,7 +176,7 @@ body {
 .social-btn.google:hover {
     transform: scale(1.05);
     box-shadow: 0 0 12px rgba(66, 133, 244, 0.6);
-     background: linear-gradient(90deg, #0F9D58 0%, #F4B400 50%, #DB4437 75%, #4285F4  100%);
+    background: linear-gradient(90deg, #0F9D58 0%, #F4B400 50%, #DB4437 75%, #4285F4 100%);
 }
 
 .social-btn.github {
@@ -189,7 +189,7 @@ body {
 .social-btn.github:hover {
     transform: scale(1.05);
     box-shadow: 0 0 12px rgba(51, 51, 51, 0.6);
-    background: linear-gradient(90deg, #6e5494  0%, #333333 100%);
+    background: linear-gradient(90deg, #6e5494 0%, #333333 100%);
 }
 
 .social-btn.apple {
@@ -202,7 +202,7 @@ body {
 .social-btn.apple:hover {
     transform: scale(1.05);
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
-    background: linear-gradient(90deg, #434343  0%, #000000 100%);
+    background: linear-gradient(90deg, #434343 0%, #000000 100%);
 }
 
 .switch {
@@ -243,16 +243,18 @@ body {
 
 .emailInUse {
     display: none;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     color: #fff;
     padding: 14px;
     border-radius: 10px;
     margin: 12px 0;
 }
+
 .emailInUse.active {
     display: block;
 }
+
 .emailInUse p {
     margin: 0 0 8px 0;
     font-size: 14px;
@@ -260,16 +262,18 @@ body {
 
 .testMail {
     display: none;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     color: #fff;
     padding: 14px;
     border-radius: 10px;
     margin: 12px 0;
 }
+
 .testMail.active {
     display: block;
 }
+
 .testMail p {
     margin: 0 0 8px 0;
     font-size: 14px;
@@ -277,25 +281,29 @@ body {
 
 .verification-notice {
     display: none;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     color: #fff;
     padding: 14px;
     border-radius: 10px;
     margin: 12px 0;
 }
+
 .verification-notice.active {
     display: block;
 }
+
 .verification-notice p {
     margin: 0 0 8px 0;
     font-size: 14px;
 }
+
 .verification-notice .verification-actions {
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
 }
+
 .verification-btn {
     background: linear-gradient(90deg, #00c6ff 10%, #ff00de 90%);
     color: #fff;
@@ -305,10 +313,11 @@ body {
     cursor: pointer;
     font-weight: 700;
 }
+
 .verification-dismiss {
-    background: rgba(255,255,255,0.04);
+    background: rgba(255, 255, 255, 0.04);
     color: #fff;
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     padding: 8px 12px;
     border-radius: 8px;
     cursor: pointer;

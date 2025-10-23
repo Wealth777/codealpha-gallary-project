@@ -1,6 +1,6 @@
 body {
   font-family: "Poppins", sans-serif;
-    background: linear-gradient(135deg, #030518, #0d64b1);
+  background: linear-gradient(135deg, #030518, #0d64b1);
   color: #fff;
   display: flex;
   justify-content: center;
@@ -74,25 +74,25 @@ input {
 }
 
 .switch {
-    margin-top: 18px;
-    font-size: 14px;
-    color: white;
+  margin-top: 18px;
+  font-size: 14px;
+  color: white;
 }
 
 .switch a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 700;
 }
 
 .switch a:hover {
-    color: #c2bebe;
+  color: #c2bebe;
 }
 
 
 .divider {
-    margin: 18px 0;
-    font-size: 13px;
-    color: white;
-    text-align: center;
+  margin: 18px 0;
+  font-size: 13px;
+  color: white;
+  text-align: center;
 }

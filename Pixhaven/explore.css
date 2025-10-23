@@ -385,18 +385,34 @@ body.dark {
     text-align: center;
     gap: 0.6rem;
   }
+
   .footer-links {
     justify-content: center;
     float: none;
     margin-top: 0;
     order: 2;
   }
-  .footer-logo { order: 1; }
-  .footer-bottom { text-align: center; padding-top: 1rem; }
-}
 
-@media (max-width: 420px) {
-  .footer { padding: 0.8rem 0.9rem; }
-  .footer-links a { font-size: 0.9rem; }
-  .footer-container { gap: 0.4rem; }
-}
+  .footer-logo {
+    order: 1;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+  }
+  }
+
+  @media (max-width: 420px) {
+    .footer {
+      padding: 0.8rem 0.9rem;
+    }
+
+    .footer-links a {
+      font-size: 0.9rem;
+    }
+
+    .footer-container {
+      gap: 0.4rem;
+    }
+  }

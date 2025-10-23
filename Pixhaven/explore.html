@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Explore | PixHaven</title>
-  <link rel="stylesheet" href="explore.css" />
-</head>
-<body>
-  <header class="top-bar">
-    <h1 class="logo">PixHaven</h1>
-    <div class="categories">
-      <button class="cat-btn" data-category="">🔥 Trending</button>
-      <button class="cat-btn" data-category="nature">🌿 Nature</button>
-      <button class="cat-btn" data-category="technology">💻 Tech</button>
-      <button class="cat-btn" data-category="animals">🐾 Animals</button>
-      <button class="cat-btn" data-category="people">👥 People</button>
-      <button class="cat-btn" data-category="city">🏙️ City</button>
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore | PixHaven</title>
+    <link rel="stylesheet" href="explore.css" />
+  </head>
+  <body>
+    <header class="top-bar">
+      <h1 class="logo">PixHaven</h1>
+      <div class="categories">
+        <button class="cat-btn" data-category>🔥 Trending</button>
+        <button class="cat-btn" data-category="nature">🌿 Nature</button>
+        <button class="cat-btn" data-category="technology">💻 Tech</button>
+        <button class="cat-btn" data-category="animals">🐾 Animals</button>
+        <button class="cat-btn" data-category="people">👥 People</button>
+        <button class="cat-btn" data-category="city">🏙️ City</button>
+      </div>
 
-        <div class="controls">
-      <button id="themeToggle" title="Toggle theme">🌙</button>
-    </div>
-  </header>
+      <div class="controls">
+        <button id="themeToggle" title="Toggle theme">🌙</button>
+      </div>
+    </header>
 
-  <main class="gallery-container">
-    <div id="gallery" class="gallery"></div>
-  </main>
+    <main class="gallery-container">
+      <div id="gallery" class="gallery"></div>
+    </main>
 
-  <div id="imageModal" class="modal hidden">
-    <div class="modal-content">
-      <span class="close-btn">&times;</span>
-      <img id="modalImg" src="" alt="Preview" />
-      <div class="modal-info">
-        <p><strong>Photographer:</strong> <span id="author"></span></p>
-        <a id="downloadLink" href="#" target="_blank" class="download-btn">⬇️ Download</a>
+    <div id="imageModal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <img id="modalImg" src alt="Preview" />
+        <div class="modal-info">
+          <p><strong>Photographer:</strong> <span id="author"></span></p>
+          <a id="downloadLink" href="#" target="_blank" class="download-btn">⬇️
+            Download</a>
+        </div>
       </div>
     </div>
-  </div>
-
 
     <footer class="footer">
       <div class="footer-container">
@@ -60,6 +60,6 @@
         with love.
       </div>
     </footer>
-  <script src="explore.js"></script>
-</body>
+    <script src="explore.js"></script>
+  </body>
 </html>
